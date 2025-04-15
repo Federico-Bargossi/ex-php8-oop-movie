@@ -3,6 +3,8 @@ require_once './Traits/HasDirector.php';
 require_once './Models/Genre.php';
 require_once './Models/Movie.php';
 require_once './db.php';
+
+$movies[1] ->setDirector("Sono io bro, il direttore, no cap");
 ?>
 
 <!DOCTYPE html>
@@ -24,13 +26,13 @@ require_once './db.php';
                 <div class="card h-100 shadow">
                     <div class="card-body">
                         <h5 class="card-title"><?= htmlspecialchars($movie->title) ?></h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><?= htmlspecialchars($movie->getDirector()) ?></h6>
+                        <h6 class="card-title"><strong>Direttore: </strong><?= $movie->getDirector() ? $movie->getDirector() : "Non trovato" ?></h6>
                         <p class="card-text">
                             <strong>Anno:</strong> <?= $movie->year ?><br>
                             <strong>Voto:</strong> <?= $movie->rating ?><br>
                             <strong>Genere:</strong> <?= htmlspecialchars($movie->getGenreName()) ?>
                         </p>
-                        <p class="card-text"><?= htmlspecialchars($movie->description) ?></p>
+                        <p class="card-text"><strong>Descrizione: </strong><?= htmlspecialchars($movie->description) ?></p>
                     </div>
                 </div>
             </div>
